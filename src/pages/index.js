@@ -1,47 +1,8 @@
 import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useRepoData } from "../hooks/repository-data"
 
-export default function ProjectsPage() {
-  const data = useStaticQuery(
-    graphql`
-    query {
-      github {
-        user(login:"haku-c") {
-          repositories (
-            last:20,
-            privacy:PUBLIC, 
-            orderBy:{
-              direction:ASC
-              field:CREATED_AT },
-            affiliations:COLLABORATOR){
-              edges {
-                node {
-                  url
-                  name
-                  description
-                  createdAt
-                  pushedAt
-                  languages (
-                    first:5, 
-                    orderBy:{
-                      direction:DESC
-                      field:SIZE}
-                    ){
-                      edges {
-                        node {
-                          name
-                        }
-                      }
-                  }
-              }
-            }
-          }
-        }
-      }
-    }`)
-
-  console.log(data);
-  const repos = data.github.user.repositories.edges;
+export default function RepositoryPage() {
+  const repos = useRepoData()
   return (
     <div>
       <h1>Projects</h1>
