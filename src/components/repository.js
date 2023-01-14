@@ -7,8 +7,10 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import LanguagesUsed from './languages';
 
-export default function RepositoryCard({ name, description, url, languages }) {
-  console.log(languages.edges);
+export default function RepositoryCard({ name, description, url, dateCreated, languages }) {
+
+  const date = new Date(dateCreated);
+  const dateString = date.toDateString();
   return (
     <Box sx={{ minWidth: 500 }}>
       <Card variant="outlined">
@@ -20,10 +22,10 @@ export default function RepositoryCard({ name, description, url, languages }) {
             <Typography sx={{ mb: 1.5 }} color="text.secondary">
               {description}
             </Typography>
-            <LanguagesUsed languageList={languages.edges}></LanguagesUsed>
+            <LanguagesUsed projectName={name} languageList={languages.edges}></LanguagesUsed>
           </CardContent>
           <CardActions>
-            <Button size="small" href={url}>Github</Button>
+            <Button size="small" variant="contained" href={url}>Github</Button>
           </CardActions>
         </React.Fragment>
       </Card>

@@ -10,7 +10,7 @@ export const useRepoData = () => {
               last:20,
               privacy:PUBLIC, 
               orderBy:{
-                direction:ASC
+                direction:DESC
                 field:CREATED_AT },
               affiliations:COLLABORATOR){
                 edges {
