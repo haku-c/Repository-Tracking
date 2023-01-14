@@ -1,21 +1,19 @@
 import * as React from 'react';
 import RepositoryCard from '../components/repository';
-import { useRepoData } from "../hooks/repository-data"
+import { useRepoData } from '../hooks/repository-data';
 
 export default function Repository() {
   const repos = useRepoData()
-  const repo1 = repos[1].node;
-  console.log(repo1);
-  const user = {
-    name: "Test"
-  }
   return (
     <div>
       {
         repos.map(repo =>
-          <RepositoryCard name={repo.node.name} description={repo.node.description} url={repo.node.url}></RepositoryCard>)
+          <div key={repo.node.name} >
+            <RepositoryCard name={repo.node.name} description={repo.node.description}
+              url={repo.node.url} languages={repo.node.languages}></RepositoryCard>
+          </div>)
       }
     </div>
   )
 }
-export const Head = () => <title>Repository Cards</title>
+export const Head = () => <title>Repositories</title>

@@ -5,8 +5,10 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import LanguagesUsed from './languages';
 
-export default function RepositoryCard({ name, description, url }) {
+export default function RepositoryCard({ name, description, url, languages }) {
+  console.log(languages.edges);
   return (
     <Box sx={{ minWidth: 500 }}>
       <Card variant="outlined">
@@ -18,9 +20,10 @@ export default function RepositoryCard({ name, description, url }) {
             <Typography sx={{ mb: 1.5 }} color="text.secondary">
               {description}
             </Typography>
+            <LanguagesUsed languageList={languages.edges}></LanguagesUsed>
           </CardContent>
           <CardActions>
-            <Button size="small" href={url}>Go to Github</Button>
+            <Button size="small" href={url}>Github</Button>
           </CardActions>
         </React.Fragment>
       </Card>
