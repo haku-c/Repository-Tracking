@@ -19,7 +19,7 @@ export default function Repository() {
             <div key={repo.node.name} >
               <RepositoryCard
                 name={repo.node.name} description={repo.node.description}
-                url={repo.node.url} dateCreated={repo.node.createdAt}
+                url={repo.node.url} dateCreated={repo.node.createdAt} datePushed={repo.node.pushedAt}
                 languages={repo.node.languages}>
               </RepositoryCard>
             </div>)
