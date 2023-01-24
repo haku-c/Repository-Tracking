@@ -4,6 +4,7 @@
 require('dotenv').config()
 
 module.exports = {
+  pathPrefix: "/Repository-Tracking",
   plugins: [{
     resolve: "gatsby-source-graphql",
     options: {
