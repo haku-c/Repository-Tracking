@@ -3,12 +3,14 @@ name: Weekly-update
 on:
   workflow_dispatch:
   schedule:
-      - cron: '40 10 * * 5' 
+      - cron: '0 11 * * 5' 
 #     - cron: '0 0 * * 0' # once a week on Sunday at 5:00PM PST/ 00:00 UTC
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    env: 
+      GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.API_TOKEN }}
     steps:
     - name: npm run deploy
-    - run: npm run deploy
+      run: npm run deploy
