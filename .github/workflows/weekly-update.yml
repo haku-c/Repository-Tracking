@@ -12,5 +12,12 @@ jobs:
     env: 
       GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.API_TOKEN }}
     steps:
-    - name: npm run deploy
-      run: npm run deploy
+      - name: Check out repo's default branch
+        uses: actions/checkout@v3
+      - name: Setup Node.js  
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.8.x
+          cache: npm
+      - name: npm run deploy
+        run: npm run deploy
