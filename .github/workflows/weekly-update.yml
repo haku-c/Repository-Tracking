@@ -18,5 +18,8 @@ jobs:
         uses: actions/setup-node@v3
       - name: Install libraries
         run: npm ci
+      - uses: oleksiyrudenko/gha-git-credentials@v2-latest
+        with:
+          token: '${{ secrets.GITHUB_TOKEN }}'
       - name: npm run deploy
         run: npm run deploy
