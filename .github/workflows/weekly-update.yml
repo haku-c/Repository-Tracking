@@ -21,5 +21,8 @@ jobs:
       - uses: oleksiyrudenko/gha-git-credentials@v2-latest
         with:
           token: '${{ secrets.GITHUB_TOKEN }}'
+          name: 'Huy Nguyen'
+          email: 'huycnguyen2020@gmail.com'
+          actor: 'HuyNguyen'
       - name: npm run deploy
         run: npm run deploy
