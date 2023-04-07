@@ -19,5 +19,7 @@ jobs:
         with:
           node-version: 16.8.x
           cache: npm
+      - name: Install libraries
+        run: npm ci
       - name: npm run deploy
         run: npm run deploy
