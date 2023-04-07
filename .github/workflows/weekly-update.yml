@@ -3,8 +3,7 @@ name: Weekly-update
 on:
   workflow_dispatch:
   schedule:
-      - cron: '0 11 * * 5' 
-#     - cron: '0 0 * * 0' # once a week on Sunday at 5:00PM PST/ 00:00 UTC
+    - cron: '0 0 * * 0' # once a week on Sunday at 5:00PM PST/ 00:00 UTC
 
 jobs:
   build:
