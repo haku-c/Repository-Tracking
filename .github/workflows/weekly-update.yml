@@ -20,7 +20,7 @@ jobs:
         run: npm ci
       - uses: oleksiyrudenko/gha-git-credentials@v2-latest
         with:
-          token: '${{ secrets.GITHUB_TOKEN }}'
+          token: ${{ secrets.API_TOKEN }}
           name: 'Huy Nguyen'
           email: 'huycnguyen2020@gmail.com'
           actor: 'HuyNguyen'
