@@ -14,15 +14,13 @@ jobs:
     steps:
       - name: Check out repo's default branch
         uses: actions/checkout@v3
+      - name: GitHub Config
+        run: |
+          git config --global user.email "huycnguyen2020@gmail.com"
+          git config --global user.name "Huy Nguyen"
       - name: Setup Node.js  
         uses: actions/setup-node@v3
       - name: Install libraries
         run: npm ci
-      - uses: oleksiyrudenko/gha-git-credentials@v2-latest
-        with:
-          token: ${{ secrets.API_TOKEN }}
-          name: 'Huy Nguyen'
-          email: 'huycnguyen2020@gmail.com'
-          actor: 'HuyNguyen'
       - name: npm run deploy
-        run: npm run deploy
+        run: npm run deploy:ci
